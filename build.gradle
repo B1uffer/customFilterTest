@@ -29,6 +29,9 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // 로그 마스킹 / 유틸이 필요하다면, commons-text 등 추가 가능
+    implementation 'org.apache.commons:commons-text:1.11.0'
 }
 
 tasks.named('test') {
