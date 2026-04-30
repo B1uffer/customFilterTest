@@ -18,6 +18,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 public class SecurityConfig {
+    /**
+     * 필요시 다중 FilterChain을 구현해서 URL별로 다른 필터 조합을 구성할 수 있다
+     */
     @Bean
     public SecurityFilterChain defaultChain(HttpSecurity http) throws Exception {
         http
