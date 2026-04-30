@@ -42,6 +42,9 @@ public class SecurityConfig {
         return http.build();
     }
 
+    /**
+     * 혹시나 postman 테스트에 문제가 있다면, 밑에 있는 메서드 2개를 주석처리 할 것
+     */
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         return new InMemoryUserDetailsManager(
