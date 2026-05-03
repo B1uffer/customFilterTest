@@ -45,7 +45,8 @@ public class SecurityConfig {
 
                 // XSS
                 .headers(headers -> headers
-                        .contentTypeOptions(Customizer.withDefaults()) // X-Content-Type-Options: nosniff, 전역 nosniff 적용
+                        // X-Content-Type-Options: nosniff, 전역 nosniff 적용
+                        .contentTypeOptions(Customizer.withDefaults())
                         .contentSecurityPolicy(csp -> csp.policyDirectives(
                                 "default-src 'self'; " +
                                 "script-src 'self' 'nonce-{{nonce}}' 'strict-dinamic; " + // {{nonce}}는 요청마다 서버가 생성해서 넣는 동적 nonce값임
