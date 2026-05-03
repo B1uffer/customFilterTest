@@ -20,6 +20,6 @@ public class TransferController {
     @PostMapping("/transfer")
     @ResponseBody
     public String doTransfer(@RequestParam int amount) {
-        return "송금 완료" + amount + "원";
+        return "송금 완료 " + amount + "원";
     }
 }
