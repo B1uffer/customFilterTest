@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form action="/transfer" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+        <input type="number" name="amount" placeholder="amount" />
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
