@@ -41,7 +41,18 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults()) // 편의를 위해 HTTP Basic 활성화
                 .csrf(csrf -> csrf.disable() // CSRF 비활성화
 //                        .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**") // 특정 경로 예외 처리하기
-                );
+                )
+
+                // XSS
+                .headers(headers -> headers
+                        .contentTypeOptions(Customizer.withDefaults()) // X-Content-Type-Options: nosniff
+                        .contentSecurityPolicy(csp -> csp.policyDirectives(
+                                "default-src 'self'; " +
+                                "script-src 'self' 'nonce-{{nonce}}' 'strict-dinamic; " +
+                                "object-src 'none'; base-url 'self'; frame-ancestors 'none'"))
+                        // .xssProtection(x -> x.block(true)) 는 레거시 : 최신 브라우저 대다수 무시
+                )
+        ;
         return http.build();
     }
 
