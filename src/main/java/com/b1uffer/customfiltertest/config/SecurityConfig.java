@@ -48,7 +48,7 @@ public class SecurityConfig {
                         .contentTypeOptions(Customizer.withDefaults()) // X-Content-Type-Options: nosniff
                         .contentSecurityPolicy(csp -> csp.policyDirectives(
                                 "default-src 'self'; " +
-                                "script-src 'self' 'nonce-{{nonce}}' 'strict-dinamic; " +
+                                "script-src 'self' 'nonce-{{nonce}}' 'strict-dinamic; " + // {{nonce}}는 요청마다 서버가 생성해서 넣는 동적 nonce값임
                                 "object-src 'none'; base-url 'self'; frame-ancestors 'none'"))
                         // .xssProtection(x -> x.block(true)) 는 레거시 : 최신 브라우저 대다수 무시
                 )
