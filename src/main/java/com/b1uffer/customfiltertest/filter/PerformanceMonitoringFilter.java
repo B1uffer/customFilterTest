@@ -18,9 +18,7 @@ public class PerformanceMonitoringFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         long start = System.nanoTime();
-
         filterChain.doFilter(request, response); // 필터체인 동작
-
         long tookMs = (System.nanoTime() - start) / 1_000_000; // 동작 후 걸린 시간을 나노초로 계산
 
         if(tookMs > SLOW_THRESHOLD_MS) { // 걸린 시간이 1초보다 크다면
